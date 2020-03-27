@@ -1,0 +1,7 @@
+com/assignment1/wasteless/Data/Repository/GroceryListItemRepository.class
+com/assignment1/wasteless/Presentation/Model/GroceryListItem.class
+com/assignment1/wasteless/Presentation/Controller/GroceryListItemController.class
+com/assignment1/wasteless/Presentation/Controller/GroceryListController.class
+com/assignment1/wasteless/Data/Repository/GroceryListRepository.class
+com/assignment1/wasteless/Presentation/Controller/UserController.class
+com/assignment1/wasteless/Presentation/Model/GroceryList.class
