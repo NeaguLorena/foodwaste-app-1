@@ -1,14 +1,17 @@
 package com.assignment1.wasteless.Presentation.Controller;
 
+import com.assignment1.wasteless.Bussiness.Service.GroceryListService;
 import com.assignment1.wasteless.Data.Repository.GroceryListRepository;
 import com.assignment1.wasteless.Presentation.Model.GroceryList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -17,17 +20,28 @@ import java.util.NoSuchElementException;
 public class GroceryListController {
 
     @Autowired
-    private GroceryListRepository GroceryListRepository;
+    private GroceryListRepository groceryListRepository;
+    private GroceryListService groceryListService;
+    //private UserService userService;
 
     @GetMapping
     public List<GroceryList> getAllGroceryLists() {
-        return GroceryListRepository.findAll();
+        return groceryListRepository.findAll();
+    }
+
+    @GetMapping("/groceryListsUser")
+    public String getAllGroceryLists(Principal principal, Model model) {
+        GroceryList groceryList = new GroceryList();
+        groceryList.setUsername(principal.getName());
+        model.addAttribute("addList", groceryList);
+        model.addAttribute("groceryLists", groceryListRepository.getAllByUsername(principal.getName()));
+        return "home";
     }
 
     @GetMapping("/{listId}")
-    public ResponseEntity<GroceryList> getGroceryListById(@PathVariable(value = "listId") Long listId) {
+    public ResponseEntity<GroceryList> getGroceryListById(@PathVariable(value = "listId") int listId) {
 
-        GroceryList list = GroceryListRepository.findById(listId)
+        GroceryList list = groceryListRepository.findById(listId)
                 .orElseThrow(() -> new NoSuchElementException("List not availbele for listId :" + listId));
 
         return ResponseEntity.ok().body(list);

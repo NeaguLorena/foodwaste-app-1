@@ -25,7 +25,7 @@ public class GroceryListItemController {
     }
 
     @GetMapping("/{itemId}")
-    public ResponseEntity<GroceryListItem> getGroceryListItemById(@PathVariable(value = "itemId") Long itemId) {
+    public ResponseEntity<GroceryListItem> getGroceryListItemById(@PathVariable(value = "itemId") int itemId) {
 
         GroceryListItem item = groceryListItemRepository.findById(itemId)
                 .orElseThrow(() -> new NoSuchElementException("Item not availbele for itemId :" + itemId));

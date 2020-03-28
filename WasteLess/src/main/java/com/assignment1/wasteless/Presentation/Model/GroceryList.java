@@ -10,32 +10,32 @@ public class GroceryList {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private Long listId;
-    private Long userId;
+    private int listId;
+    private String username;
     private String listName;
 
     public GroceryList() {
     }
 
-    public GroceryList(Long userId, String listName) {
-        this.userId = userId;
+    public GroceryList(String userId, String listName) {
+        this.username = userId;
         this.listName = listName;
     }
 
-    public Long getListId() {
+    public int getListId() {
         return listId;
     }
 
-    public void setListId(Long listId) {
+    public void setListId(int listId) {
         this.listId = listId;
     }
 
-    public Long getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getListName() {
@@ -50,7 +50,7 @@ public class GroceryList {
     public String toString() {
         return "GroceryList{" +
                 "listId=" + listId +
-                ", userId=" + userId +
+                ", userId=" + username +
                 ", listName='" + listName + '\'' +
                 '}';
     }

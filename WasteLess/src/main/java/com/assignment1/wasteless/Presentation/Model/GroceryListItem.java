@@ -14,8 +14,8 @@ public class GroceryListItem {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native", strategy = "native")
-    private Long itemId;
-    private Long listId;
+    private int itemId;
+    private int listId;
     private String name;
     private int quantity;
     private int calorieValue;
@@ -26,7 +26,7 @@ public class GroceryListItem {
     public GroceryListItem() {
     }
 
-    public GroceryListItem(Long listId, String name, int quantity, int calorieValue, Date purchaseDate, Date expirationDate, Date consumptionDate) {
+    public GroceryListItem(int listId, String name, int quantity, int calorieValue, Date purchaseDate, Date expirationDate, Date consumptionDate) {
         this.listId = listId;
         this.name = name;
         this.quantity = quantity;
@@ -36,11 +36,11 @@ public class GroceryListItem {
         this.consumptionDate = consumptionDate;
     }
 
-    public Long getListId() {
+    public int getListId() {
         return listId;
     }
 
-    public void setListId(Long listId) {
+    public void setListId(int listId) {
         this.listId = listId;
     }
 

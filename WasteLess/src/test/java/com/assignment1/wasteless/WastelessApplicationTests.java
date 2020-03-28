@@ -2,10 +2,8 @@ package com.assignment1.wasteless;
 
 import com.assignment1.wasteless.Data.Repository.GroceryListItemRepository;
 import com.assignment1.wasteless.Data.Repository.GroceryListRepository;
-import com.assignment1.wasteless.Data.Repository.UserRepository;
 import com.assignment1.wasteless.Presentation.Model.GroceryList;
 import com.assignment1.wasteless.Presentation.Model.GroceryListItem;
-import com.assignment1.wasteless.Presentation.Model.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -20,32 +18,28 @@ import java.util.Date;
 class WastelessApplicationTests {
 
     @Autowired
-    private UserRepository userRepository;
-    @Autowired
     private GroceryListRepository groceryListRepository;
     @Autowired
     private GroceryListItemRepository groceryListItemRepository;
 
-    @Test
-    @DisplayName("Create User Test ")
-    void createUserTest() {
-
-        User created = userRepository.save(getUser());
-
-        Assertions.assertTrue(created != null);
-    }
-
-
-    private User getUser() {
-
-        User user = new User();
-        user.setUserName("PeterM");
-        user.setPassword("ABC123abc*");
-        user.setDateofBirth(new Date());
-        user.setCreationTime(new Date());
-
-        return user;
-    }
+//    @Test
+//    @DisplayName("Create User Test ")
+//    void createUserTest() {
+//
+//        User created = userRepository.save(getUser());
+//
+//        Assertions.assertTrue(created != null);
+//    }
+//
+//
+//    private User getUser() {
+//
+//        User user = new User();
+//        user.setUserName("user");
+//        user.setPassword("ABC123abc*");
+//
+//        return user;
+//    }
 
     @Test
     @DisplayName("Create List Test ")
@@ -59,7 +53,7 @@ class WastelessApplicationTests {
 
     private GroceryList getList() {
 
-        GroceryList list = new GroceryList((long) 1, "emergency list");
+        GroceryList list = new GroceryList( "user", "emergency list");
 
         return list;
     }
@@ -80,7 +74,7 @@ class WastelessApplicationTests {
         Date expirationDate = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
         Date consumptionDate = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
 
-        GroceryListItem groceryListItem = new GroceryListItem((long) 1, "rosii", 10, 5, purchaseDate, expirationDate, consumptionDate);
+        GroceryListItem groceryListItem = new GroceryListItem( 1, "rosii", 10, 5, purchaseDate, expirationDate, consumptionDate);
 
         return groceryListItem;
     }
