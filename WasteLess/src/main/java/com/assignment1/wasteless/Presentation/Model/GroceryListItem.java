@@ -36,6 +36,14 @@ public class GroceryListItem {
         this.consumptionDate = consumptionDate;
     }
 
+    public int getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
+    }
+
     public int getListId() {
         return listId;
     }

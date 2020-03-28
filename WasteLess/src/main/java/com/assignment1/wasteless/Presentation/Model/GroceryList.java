@@ -17,8 +17,8 @@ public class GroceryList {
     public GroceryList() {
     }
 
-    public GroceryList(String userId, String listName) {
-        this.username = userId;
+    public GroceryList(String username, String listName) {
+        this.username = username;
         this.listName = listName;
     }
 

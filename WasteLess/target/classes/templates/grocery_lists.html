@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<h2>Grocery Lists</h2>
+<h3>Add new grocery list:</h3>
+<form th:action="@{/groceryLists-user}" method="post">
+        <pre>
+        Username:   <input name="username"/> <br/>
+        List Name:  <input name="listName"/><br/>
+        <input type="submit" value="Save">
+            </pre>
+</form>
+<h3>Your Grocery Lists</h3>
+<table style="width:50%;text-align:left;margin-left:100px;margin-bottom:50px;">
+    <tr>
+        <th>Id</th>
+        <th>List Name</th>
+    </tr>
+    <tr th:each="list : ${groceryLists}">
+        <td th:text="${list.listId}"></td>
+        <td th:text="${list.listName}"></td>
+        <td>
+            <form th:action="@{/groceryLists-user/{listId}(listId=${list.listId})}" method="post">
+                <input type="submit" value="View List Items"/>
+            </form>
+        </td>
+        <td>
+
+        </td>
+    </tr>
+</table>
+
+<form th:action="@{/logout}" style="text-align:left" method="post">
+    <input type="submit" value="Log Out"/>
+</form>
+
+</body>
+</html>

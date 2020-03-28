@@ -5,18 +5,17 @@ import com.assignment1.wasteless.Data.Repository.GroceryListRepository;
 import com.assignment1.wasteless.Presentation.Model.GroceryList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-@RestController
-@RequestMapping("/groceryList")
+@Controller
+//@RequestMapping("/groceryList")
 public class GroceryListController {
 
     @Autowired
@@ -24,27 +23,40 @@ public class GroceryListController {
     private GroceryListService groceryListService;
     //private UserService userService;
 
-    @GetMapping
-    public List<GroceryList> getAllGroceryLists() {
-        return groceryListRepository.findAll();
+//    @GetMapping
+//    public List<GroceryList> getAllGroceryLists() {
+//        return groceryListRepository.findAll();
+//    }
+
+//    @PostMapping("/createList")
+    @PostMapping("/groceryLists-user")
+    public String createGroceryList(@Valid GroceryList groceryList){
+        groceryListRepository.save(groceryList);
+        return "redirect:/groceryLists-user";
     }
 
-    @GetMapping("/groceryListsUser")
+    @GetMapping("/groceryLists-user")
     public String getAllGroceryLists(Principal principal, Model model) {
         GroceryList groceryList = new GroceryList();
         groceryList.setUsername(principal.getName());
         model.addAttribute("addList", groceryList);
         model.addAttribute("groceryLists", groceryListRepository.getAllByUsername(principal.getName()));
-        return "home";
+        return "grocery_lists";
     }
 
-    @GetMapping("/{listId}")
-    public ResponseEntity<GroceryList> getGroceryListById(@PathVariable(value = "listId") int listId) {
+//    @RequestMapping("/groceryLists-user/delete/{listId}")
+//    public String deleteGroceryList(@PathVariable("listId") Integer listId) {
+//        groceryListRepository.deleteGroceryList(listId);
+//        return "redirect:/groceryLists-user";
+//    }
 
-        GroceryList list = groceryListRepository.findById(listId)
-                .orElseThrow(() -> new NoSuchElementException("List not availbele for listId :" + listId));
-
-        return ResponseEntity.ok().body(list);
-    }
+//    @GetMapping("/{listId}")
+//    public ResponseEntity<GroceryList> getGroceryListById(@PathVariable(value = "listId") int listId) {
+//
+//        GroceryList list = groceryListRepository.findById(listId)
+//                .orElseThrow(() -> new NoSuchElementException("List not availbele for listId :" + listId));
+//
+//        return ResponseEntity.ok().body(list);
+//    }
 
 }
