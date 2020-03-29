@@ -3,18 +3,24 @@
       xmlns:th="http://www.thymeleaf.org">
 
 <body>
+<div th:if="${NullPointerException}">
+    Invalid username and password.
+</div>
+<div th:if="${NullPointerException}">
+    You have been logged out.
+</div>
 <h2>Grocery List Items</h2>
 <h3>Add new grocery item:</h3>
-<div th:switch="${groceryListItems}" class="container my-5">
+<!--<div th:switch="${groceryListItems}" class="container my-5">-->
 
 <form th:action="@{/groceryLists-user/{listId}(listId=${listId})}" method="post">
         <pre>
         Item name:        <input name="name"/><br/>
         Quantity:         <input name="quantity"/><br/>
         Calorie value:    <input name="calorieValue"/><br>
-        Purchase Date:    <input name="purchaseDate"/><br>
-        Expiration Date:  <input name="expirationDate"/><br>
-        Consumption Date: <input name="consumptionDate"/><br>
+        Purchase Date:    <input type="date" name="purchaseDate"/><br>
+        Expiration Date:  <input type="date" name="expirationDate"/><br>
+        Consumption Date: <input type="date" name="consumptionDate"/><br>
         <input type="submit" value="Save">
             </pre>
 </form>
@@ -38,7 +44,8 @@
         <td th:text="${item.expirationDate}"></td>
         <td th:text="${item.consumptionDate}"></td>
         <td>
-            <form th:action="@{/groceryItem-list/delete/{itemId}(itemId=${item.itemId})}" style="text-align:left" method="post">
+            <form th:action="@{/groceryItem-list/delete/{listId}/{itemId}(itemId=${item.itemId},listId=${item.listId})}"
+                  style="text-align:left" method="post">
                 <input type="submit" value="Donate"/>
             </form>
         </td>
@@ -52,6 +59,15 @@
     <input type="submit" value="Log Out"/>
 </form>
 </div>
-
+<script>
+    function myFunction() {
+        var x = document.getElementById("pDate").value;
+        document.getElementById("pDateVal").innerHTML = x;
+        var y = document.getElementById("eDate").value;
+        document.getElementById("eDateVal").innerHTML = y;
+        var z = document.getElementById("cDate").value;
+        document.getElementById("cDateVal").innerHTML = z;
+    }
+</script>
 </body>
 </html>

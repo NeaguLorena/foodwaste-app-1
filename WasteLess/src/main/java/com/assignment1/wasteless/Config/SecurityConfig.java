@@ -77,9 +77,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring()
-//                .antMatchers("/h2", "/resources/**", "/static/**", "/css/**", "/js/**", "/images/**", "/console/**");
-//    }
+
 }

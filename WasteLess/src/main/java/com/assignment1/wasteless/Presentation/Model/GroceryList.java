@@ -3,6 +3,7 @@ package com.assignment1.wasteless.Presentation.Model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity(name = "LIST")
 public class GroceryList {

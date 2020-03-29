@@ -22,25 +22,6 @@ class WastelessApplicationTests {
     @Autowired
     private GroceryListItemRepository groceryListItemRepository;
 
-//    @Test
-//    @DisplayName("Create User Test ")
-//    void createUserTest() {
-//
-//        User created = userRepository.save(getUser());
-//
-//        Assertions.assertTrue(created != null);
-//    }
-//
-//
-//    private User getUser() {
-//
-//        User user = new User();
-//        user.setUserName("user");
-//        user.setPassword("ABC123abc*");
-//
-//        return user;
-//    }
-
     @Test
     @DisplayName("Create List Test ")
     void createListTest() {
@@ -53,7 +34,7 @@ class WastelessApplicationTests {
 
     private GroceryList getList() {
 
-        GroceryList list = new GroceryList( "user", "emergency list");
+        GroceryList list = new GroceryList("user", "emergency list");
 
         return list;
     }
@@ -70,11 +51,11 @@ class WastelessApplicationTests {
 
     private GroceryListItem getItem() throws ParseException {
 
-        Date purchaseDate = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
-        Date expirationDate = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
-        Date consumptionDate = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
+        Date purchaseDate = new SimpleDateFormat("yyyy-MM-dd").parse("2020-03-20");
+        Date expirationDate = new SimpleDateFormat("yyyy-MM-dd").parse("2020-03-20");
+        Date consumptionDate = new SimpleDateFormat("yyyy-MM-dd").parse("2020-03-20");
 
-        GroceryListItem groceryListItem = new GroceryListItem( 1, "rosii", 10, 5, purchaseDate, expirationDate, consumptionDate);
+        GroceryListItem groceryListItem = new GroceryListItem(1, "rosii", 10, 5, purchaseDate, expirationDate, consumptionDate);
 
         return groceryListItem;
     }

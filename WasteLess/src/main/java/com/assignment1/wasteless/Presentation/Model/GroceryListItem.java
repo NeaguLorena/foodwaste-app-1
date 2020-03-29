@@ -1,11 +1,13 @@
 package com.assignment1.wasteless.Presentation.Model;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Entity(name = "ITEM")
@@ -17,10 +19,15 @@ public class GroceryListItem {
     private int itemId;
     private int listId;
     private String name;
+    @NotNull
     private int quantity;
+    @NotNull
     private int calorieValue;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date purchaseDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date expirationDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date consumptionDate;
 
     public GroceryListItem() {

@@ -18,7 +18,6 @@ public class GroceryListService {
 //            groceryListRepository.save(groceryList);
 //    }
 
-
     public List<GroceryList> getAllGroceryListsByUsername(String username){
         return groceryListRepository.getAllByUsername(username);
     }

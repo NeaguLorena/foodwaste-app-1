@@ -27,26 +27,21 @@ public class WastelessApplication {
         SpringApplication.run(WastelessApplication.class, args);
     }
 
-//    @Bean
-//    public CommandLineRunner loadData() {
-//        return args -> initDb();
-//    }
-
     @PostConstruct
     public void initDb() throws ParseException {
 
         GroceryList list = new GroceryList( "user", "emergency list");
         groceryListRepository.save(list);
 
-        Date purchaseDate = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
-        Date expirationDate = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
-        Date consumptionDate = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
+        Date purchaseDate = new SimpleDateFormat("yyyy-MM-dd").parse("2020-03-20");
+        Date expirationDate = new SimpleDateFormat("yyyy-MM-dd").parse("2020-03-20");
+        Date consumptionDate = new SimpleDateFormat("yyyy-MM-dd").parse("2020-03-20");
 
         GroceryListItem groceryListItem = new GroceryListItem( 1, "rosii", 10, 5, purchaseDate, expirationDate, consumptionDate);
 
-        Date purchaseDate2 = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
-        Date expirationDate2 = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
-        Date consumptionDate2 = new SimpleDateFormat("yyyy-mm-dd").parse("2020-03-03");
+        Date purchaseDate2 = new SimpleDateFormat("yyyy-MM-dd").parse("2020-03-20");
+        Date expirationDate2 = new SimpleDateFormat("yyyy-MM-dd").parse("2020-03-20");
+        Date consumptionDate2 = new SimpleDateFormat("yyyy-MM-dd").parse("2020-03-20");
 
         GroceryListItem groceryListItem2 = new GroceryListItem( 1, "rosii", 10, 5, purchaseDate2, expirationDate2, consumptionDate2);
 
