@@ -50,24 +50,17 @@
             </form>
         </td>
         <td>
+            <form th:action="@{/groceryItem-list/consume/{listId}/{itemId}(itemId=${item.itemId},listId=${item.listId})}"
+                  style="text-align:left" method="post">
+                <input type="submit" value="Eat"/>
+            </form>
+        </td>
+        <td>
 
         </td>
     </tr>
 </table>
-
-<form th:action="@{/logout}" style="text-align:left" method="post">
-    <input type="submit" value="Log Out"/>
-</form>
 </div>
-<script>
-    function myFunction() {
-        var x = document.getElementById("pDate").value;
-        document.getElementById("pDateVal").innerHTML = x;
-        var y = document.getElementById("eDate").value;
-        document.getElementById("eDateVal").innerHTML = y;
-        var z = document.getElementById("cDate").value;
-        document.getElementById("cDateVal").innerHTML = z;
-    }
-</script>
+
 </body>
 </html>

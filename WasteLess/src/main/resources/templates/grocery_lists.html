@@ -31,7 +31,10 @@
         </td>
     </tr>
 </table>
-
+<form th:action="@{/groceryLists-user/reportGenerate}" style="text-align:left" method="post">
+    <button type="submit" th:name="type" th:value="weekly">Weekly</button>
+    <button type="submit" th:name="type" th:value="monthly">Monthly</button>
+</form>
 <form th:action="@{/logout}" style="text-align:left" method="post">
     <input type="submit" value="Log Out"/>
 </form>

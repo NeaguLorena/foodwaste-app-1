@@ -24,8 +24,8 @@ public class GroceryListController {
 
     @GetMapping("/groceryLists-user")
     public String getAllGroceryLists(Principal principal, Model model) {
-        GroceryList groceryList = new GroceryList();
-        groceryList.setUsername(principal.getName());
+//        GroceryList groceryList = new GroceryList();
+//        groceryList.setUsername(principal.getName());
         model.addAttribute("groceryLists", groceryListRepository.getAllByUsername(principal.getName()));
         return "grocery_lists";
     }
