@@ -3,6 +3,7 @@ com/assignment1/wasteless/Factory/ReportFactoryProducer.class
 com/assignment1/wasteless/Presentation/Controller/ReportController.class
 com/assignment1/wasteless/Presentation/Model/Report.class
 com/assignment1/wasteless/Data/Repository/GroceryListRepository.class
+com/assignment1/wasteless/Bussiness/Service/ReminderService.class
 com/assignment1/wasteless/Presentation/Controller/LoginController.class
 com/assignment1/wasteless/Presentation/Model/GroceryList.class
 com/assignment1/wasteless/Presentation/Model/GroceryListItem.class

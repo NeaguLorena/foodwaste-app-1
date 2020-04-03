@@ -12,6 +12,6 @@ import java.util.Optional;
 public interface GroceryListItemRepository extends JpaRepository<GroceryListItem, Integer> {
 
     List<GroceryListItem> findAllByListId(int listId);
-
     GroceryListItem findItemByItemId(int itemId);
+
 }

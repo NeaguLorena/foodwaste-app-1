@@ -19,6 +19,7 @@ public class ReportGeneratorRepository {
     private GroceryListItemRepository groceryListItemRepository;
 
     public Report getReport(ReportType reportType, String username) {
+
         List<GroceryList> lists = groceryListRepository.getAllByUsername(username);
         List<GroceryListItem> items = lists
                 .stream()

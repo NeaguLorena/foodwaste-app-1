@@ -1,7 +1,9 @@
 package com.assignment1.wasteless;
 
+import com.assignment1.wasteless.Data.Repository.GoalRepository;
 import com.assignment1.wasteless.Data.Repository.GroceryListItemRepository;
 import com.assignment1.wasteless.Data.Repository.GroceryListRepository;
+import com.assignment1.wasteless.Presentation.Model.Goal;
 import com.assignment1.wasteless.Presentation.Model.GroceryList;
 import com.assignment1.wasteless.Presentation.Model.GroceryListItem;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,8 @@ public class WastelessApplication {
     private GroceryListRepository groceryListRepository;
     @Autowired
     private GroceryListItemRepository groceryListItemRepository;
+    @Autowired
+    private GoalRepository goalRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(WastelessApplication.class, args);
@@ -47,6 +51,10 @@ public class WastelessApplication {
 
         groceryListItemRepository.save(groceryListItem);
         groceryListItemRepository.save(groceryListItem2);
+
+        Goal goal = new Goal("user", 11, new Date());
+        goalRepository.save(goal);
+
 
     }
 }

@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<div style="text-align: center;">
 <head>
-    <title>Spring Security Example </title>
+    <h1 style="margin-bottom: 20px; color: darkgreen">
+        WasteLess
+    </h1>
 </head>
 <body>
 <div th:if="${param.error}">
@@ -18,5 +21,6 @@
         <div><input type="submit" value="Sign In"/></div>
     </pre>
 </form>
+</div>
 </body>
 </html>
