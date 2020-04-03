@@ -1,12 +1,18 @@
 package com.assignment1.wasteless;
 
+import com.assignment1.wasteless.Data.Repository.GoalRepository;
 import com.assignment1.wasteless.Data.Repository.GroceryListItemRepository;
 import com.assignment1.wasteless.Data.Repository.GroceryListRepository;
-import com.assignment1.wasteless.Presentation.Model.GroceryList;
-import com.assignment1.wasteless.Presentation.Model.GroceryListItem;
+import com.assignment1.wasteless.Data.Repository.ReportGeneratorRepository;
+import com.assignment1.wasteless.Presentation.Model.*;
+import org.hibernate.Session;
+import org.junit.Rule;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -21,6 +27,8 @@ class WastelessApplicationTests {
     private GroceryListRepository groceryListRepository;
     @Autowired
     private GroceryListItemRepository groceryListItemRepository;
+    @Autowired
+    private GoalRepository goalRepository;
 
     @Test
     @DisplayName("Create List Test ")
@@ -58,6 +66,26 @@ class WastelessApplicationTests {
         GroceryListItem groceryListItem = new GroceryListItem(1, "rosii", 10, 5, purchaseDate, expirationDate, consumptionDate);
 
         return groceryListItem;
+    }
+
+
+    @Test
+    @DisplayName("Create Goal Test ")
+    void createGoalTest() throws ParseException {
+
+        Goal created = goalRepository.save(getGoal());
+
+        Assertions.assertTrue(created != null);
+    }
+
+
+    private Goal getGoal() throws ParseException {
+
+        Date date = new SimpleDateFormat("yyyy-MM-dd").parse("2020-03-20");
+
+        Goal goal = new Goal("user", 10, date);
+
+        return goal;
     }
 
 }
