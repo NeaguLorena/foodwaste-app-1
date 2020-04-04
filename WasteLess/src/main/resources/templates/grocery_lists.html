@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <body>
+
 <h2>Set Your Goal For Today!</h2>
 <h3>Add new goal:</h3>
 <form th:action="@{/set-goal}" method="post">
@@ -56,10 +57,22 @@
         </td>
     </tr>
 </table>
+
 <form th:action="@{/groceryLists-user/reportGenerate}" style="text-align:left" method="post">
-    <button type="submit" th:name="type" th:value="weekly">Weekly Report </button>
-    <button type="submit" th:name="type" th:value="monthly">Monthly Report </button>
+    <button type="submit" th:name="type" th:value="weekly">Weekly Report</button>
+    <button type="submit" th:name="type" th:value="monthly">Monthly Report</button>
 </form>
+<h3>
+    <td th:text="${expirationMessage}">
+    </td>
+</h3>
+<table style="width:50%;text-align:left;margin-left:100px;margin-bottom:50px;">
+    <tr th:each="item : ${itemsToExpire}">
+        <td th:text="${itemsToExpire.indexOf(item)+1}"></td>
+        <td th:text="${item.name}"></td>
+    </tr>
+</table>
+
 <form th:action="@{/logout}" method="post">
     <input type="submit" value="Log Out"/>
 </form>

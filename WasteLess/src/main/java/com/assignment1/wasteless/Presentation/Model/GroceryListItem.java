@@ -7,7 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.PastOrPresent;
 import java.util.Date;
 
 @Entity(name = "ITEM")
@@ -23,6 +26,7 @@ public class GroceryListItem {
     private int quantity;
     @NotNull
     private int calorieValue;
+    @PastOrPresent
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date purchaseDate;
     @DateTimeFormat(pattern = "yyyy-MM-dd")

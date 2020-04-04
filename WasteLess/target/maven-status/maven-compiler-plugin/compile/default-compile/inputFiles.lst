@@ -1,4 +1,5 @@
 /Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Presentation/Model/MonthlyReport.java
+/Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Bussiness/Service/NotificationService.java
 /Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Factory/MonthlyReportFactory.java
 /Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Presentation/Controller/LoginController.java
 /Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Presentation/Model/GroceryList.java
@@ -17,7 +18,6 @@
 /Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Presentation/Model/GroceryListItem.java
 /Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/WastelessApplication.java
 /Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Presentation/Controller/GroceryListItemController.java
-/Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Bussiness/Service/GroceryListService.java
 /Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Presentation/Model/ReportGenerator.java
 /Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Data/Repository/ReportGeneratorRepository.java
 /Users/lorenaneagu/Year3Sem2/SD/assignment-1-NeaguLorena/WasteLess/src/main/java/com/assignment1/wasteless/Data/Repository/GroceryListItemRepository.java

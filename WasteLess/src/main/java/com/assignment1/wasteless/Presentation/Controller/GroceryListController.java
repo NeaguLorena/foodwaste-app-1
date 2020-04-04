@@ -1,6 +1,7 @@
 package com.assignment1.wasteless.Presentation.Controller;
 
 import ch.qos.logback.core.joran.conditional.ElseAction;
+import com.assignment1.wasteless.Bussiness.Service.NotificationService;
 import com.assignment1.wasteless.Bussiness.Service.ReminderService;
 import com.assignment1.wasteless.Data.Repository.GoalRepository;
 import com.assignment1.wasteless.Data.Repository.GroceryListItemRepository;
@@ -27,6 +28,8 @@ public class GroceryListController {
     private GoalRepository goalRepository;
     @Autowired
     private ReminderService reminderService;
+    @Autowired
+    private NotificationService notificationService;
 
     @PostMapping("/groceryLists-user")
     public String createGroceryList(@Valid GroceryList groceryList) {
@@ -37,11 +40,18 @@ public class GroceryListController {
     @GetMapping("/groceryLists-user")
     public String getAllGroceryLists(Principal principal, Model model) {
         List<Goal> goals = goalRepository.getAllByUsername(principal.getName());
+        List<GroceryListItem> itemsToExpire = notificationService.getItemsAboutToExpire(principal.getName());
         Goal g = goals.get(goals.size() - 1);
-        String message;
+        String message, expirationMessage;
         if (g != null)
             message = reminderService.getReminder(principal.getName(), g);
         else message = "No goal set yet!";
+        if (itemsToExpire.size() > 0) {
+            expirationMessage = "Some items are about to expire tomorrow!";
+        } else expirationMessage = "";
+
+        model.addAttribute("itemsToExpire", itemsToExpire);
+        model.addAttribute("expirationMessage", expirationMessage);
         model.addAttribute("message", message);
         model.addAttribute("goals", goals);
         model.addAttribute("groceryLists", groceryListRepository.getAllByUsername(principal.getName()));

@@ -5,6 +5,7 @@ import com.assignment1.wasteless.Data.Repository.GroceryListRepository;
 import com.assignment1.wasteless.Presentation.Model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,12 +29,13 @@ public class ReminderService {
                 .collect(Collectors.toList());
 
         for (GroceryListItem item : items) {
-            if(item.getExpirationDate().before(new Date())){
+            if (item.getExpirationDate() != null && item.getExpirationDate().before(new Date())) {
                 daysUntilExpiration = 1;
-            }
-            else{
+            } else {
                 daysUntilExpiration = (item.getExpirationDate().getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24);
             }
+            if (daysUntilExpiration == 0)
+                daysUntilExpiration = 1;
             sum_goals += item.getCalorieValue() / daysUntilExpiration;
         }
         if (sum_goals > goal.getNumberOfCaloriesADay()) {

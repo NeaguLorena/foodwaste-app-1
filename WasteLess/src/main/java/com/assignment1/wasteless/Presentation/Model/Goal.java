@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Positive;
 import java.util.Date;
 
 @Entity(name = "GOAL")
@@ -17,6 +18,7 @@ public class Goal {
     @GenericGenerator(name = "native", strategy = "native")
     private int id;
     private String username;
+    @Positive
     private int numberOfCaloriesADay;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date day;

@@ -3,6 +3,7 @@ package com.assignment1.wasteless.Presentation.Model;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity(name = "LIST")
@@ -13,6 +14,7 @@ public class GroceryList {
     @GenericGenerator(name = "native", strategy = "native")
     private int listId;
     private String username;
+    @NotEmpty
     private String listName;
 
     public GroceryList() {
