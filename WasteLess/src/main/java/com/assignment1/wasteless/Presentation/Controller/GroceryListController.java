@@ -10,6 +10,7 @@ import com.assignment1.wasteless.Presentation.Model.Goal;
 import com.assignment1.wasteless.Presentation.Model.GroceryList;
 import com.assignment1.wasteless.Presentation.Model.GroceryListItem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +33,8 @@ public class GroceryListController {
     private NotificationService notificationService;
 
     @PostMapping("/groceryLists-user")
-    public String createGroceryList(@Valid GroceryList groceryList) {
+    public String createGroceryList(@Valid GroceryList groceryList, Principal principal) {
+        groceryList.setUsername(principal.getName());
         groceryListRepository.save(groceryList);
         return "redirect:/groceryLists-user";
     }
